@@ -36,8 +36,8 @@ jobs:
 
     - script: ls -la $(Build.SourcesDirectory)
     - ${{ if eq(parameters.quickScan, true) }}:
-      - script: curl -sSL  https://download.sourceclear.com/ci.sh | sh -s -- scan $(Build.SourcesDirectory) --ws $(WORKSPACE_SLUG)
+      - script: curl -sSL  https://download.sourceclear.com/ci.sh | sh -s -- scan $(Build.SourcesDirectory) --quick --ws $(WORKSPACE_SLUG)
         displayName: Performing SCA Analysis
     - ${{ if eq(parameters.quickScan, false) }}:
-      - script: curl -sSL  https://download.sourceclear.com/ci.sh | sh -s -- scan $(Build.SourcesDirectory) --quick --ws $(WORKSPACE_SLUG)
+      - script: curl -sSL  https://download.sourceclear.com/ci.sh | sh -s -- scan $(Build.SourcesDirectory) --ws $(WORKSPACE_SLUG)
         displayName: Performing SCA Analysis
