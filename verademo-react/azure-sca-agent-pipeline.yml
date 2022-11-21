@@ -21,7 +21,7 @@ parameters:
     default: true
   
 variables:
-- group:  'SCA Agent' # Reference the library containing 
+- group:  'SCA Agent Configuration' # Reference the library containing 
 
 #jobs:
 # - template: jobs/veracode-sca-agent-job.yml@devops-scripts
