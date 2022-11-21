@@ -1,5 +1,4 @@
 # File: azure-sca-agent-pipeline.yml
-
 name: $(SourceBranchName)_$(date:yyyyMMdd)$(rev:.r)
 
 trigger: none
