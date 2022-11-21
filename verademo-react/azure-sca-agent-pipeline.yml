@@ -21,7 +21,7 @@ parameters:
     default: true
   
 variables:
-- group:  'SCA Agent Configuration' # Reference the library containing 
+- group:  'SCA Agent' # Reference the library containing 
 
 #jobs:
 # - template: jobs/veracode-sca-agent-job.yml@devops-scripts
@@ -31,6 +31,9 @@ jobs:
     displayName: Software Composition Analysis Testing
 
     steps:
+    - script: echo $(SRCCLR_API_TOKEN)
+    - script: echo $(WORKSPACE_SLUG)
+
     - script: ls -la $(Build.SourcesDirectory)
     - ${{ if eq(parameters.quickScan, true) }}:
       - script: curl -sSL  https://download.sourceclear.com/ci.sh | sh -s -- scan $(Build.SourcesDirectory) --ws $(WORKSPACE_SLUG)
