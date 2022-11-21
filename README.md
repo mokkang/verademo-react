@@ -14,7 +14,7 @@ The Verademo application example is a simple .NET Core web application with a An
 Pipeline | Script | Status
 ------ | ------   |----
 Scheduled Daily Release Candidate Build from Main branch| azure-scheduled.yml | [![Build Status](https://dev.azure.com/veracode-demonstration/verademo-react/_apis/build/status/Scheduled%20Build%20and%20Analysis%20for%20Verademo%20React?repoName=dmedeiros-veracode%2Fverademo-react&branchName=main)](https://dev.azure.com/veracode-demonstration/verademo-react/_build/latest?definitionId=22&repoName=dmedeiros-veracode%2Fverademo-react&branchName=main)
-
+Pull Request |asure-pull-request.yml|[![Build Status](https://dev.azure.com/veracode-demonstration/verademo-react/_apis/build/status/Pull%20Request%20Build%20and%20Analysis%20for%20Verademo-React?repoName=dmedeiros-veracode%2Fverademo-react&branchName=main)](https://dev.azure.com/veracode-demonstration/verademo-react/_build/latest?definitionId=23&repoName=dmedeiros-veracode%2Fverademo-react&branchName=main)
 # Pipeline Examples
 
 The examples for the pipelines within the main line branch are only a demonstration of a successful path through the SDLC in each case. The Verademo application within this branch does not container any weaknesses or vulnerabilities to demonstrate any strategy.
