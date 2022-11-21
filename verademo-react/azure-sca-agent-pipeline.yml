@@ -17,11 +17,16 @@ pool:
   
 parameters:
   - name: quickScan
+    displayName: Quick Scan
     type: boolean
-    default: true
+    default: false
+  - name: varGroup
+    displayName: Variable Group
+    type: string
+    default: ''
   
 variables:
-- group:  'SCA Agent Configuration' # Reference the library containing 
+- group:  $(varGroup) # Reference the library containing 
 
 #jobs:
 # - template: jobs/veracode-sca-agent-job.yml@devops-scripts
