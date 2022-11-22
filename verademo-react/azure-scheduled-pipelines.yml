@@ -26,7 +26,6 @@ resources:
     name: dmedeiros-veracode/devops-scripts-azure-devops
     endpoint: dmedeiros-veracode #Connection name of GitHub App. Can be name of a Service Connection to GitHub as well.
   
-
 variables:
 - group: 'SCA Agent Configuration' # Reference the library containing 
 - name: solution
