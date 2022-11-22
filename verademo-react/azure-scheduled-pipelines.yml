@@ -28,10 +28,11 @@ resources:
   
 
 variables:
+- group: 'SCA Agent Configuration' # Reference the library containing 
+
   solution: '**/*.sln'
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
-- group: 'SCA Agent Configuration' # Reference the library containing 
 
 stages: 
 - stage: Build
