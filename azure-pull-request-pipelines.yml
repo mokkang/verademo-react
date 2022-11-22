@@ -21,6 +21,7 @@ pool:
 
 variables:
 - group: 'Veracode Credentials' # Reference the library containing Veracode Credentials
+- group: 'SCA Agent Configuration'
 
 stages: 
 - stage: Build
