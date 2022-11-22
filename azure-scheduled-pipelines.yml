@@ -38,13 +38,7 @@ stages:
   jobs:
   - job: Build_Release
     displayName: Release Build
-    
-    steps:
-    - script: echo '$(Build.BuildNumber)'
-    - template: steps/abstract-build-steps.yml@devops-scripts
-      parameters:
-        buildConfiguration: 'Release'
- 
+     
     #steps:
     #- script: echo '$(Build.BuildNumber)'
     #- task: NuGetToolInstaller@1
@@ -65,10 +59,10 @@ stages:
     #    platform: '$(buildPlatform)'
     #    configuration: '$(buildConfiguration)'
 
-    #steps:
-    #- template: steps/abstract-build-steps.yml@devops-scripts
-    #  parameters:
-    #     buildConfiguration: 'Release'
+    steps:
+    - template: steps/abstract-build-steps.yml@devops-scripts
+      parameters:
+         buildConfiguration: 'Release'
 
     - task: PublishPipelineArtifact@1
       inputs:
