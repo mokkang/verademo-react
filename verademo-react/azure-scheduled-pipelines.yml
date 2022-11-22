@@ -4,9 +4,6 @@
 # https://docs.microsoft.com/azure/devops/pipelines/apps/aspnet/build-aspnet-4
 name:  $(TeamProject)_$(SourceBranchName)_$(Build.BuildId)_$(Date:yyyyMMdd)$(Rev:.r)
 
-pool:
-  vmImage: 'windows-latest'
-
 trigger: none
 pr: none
 
@@ -18,23 +15,19 @@ schedules:
     include: [ main ] # which branches the schedule applies to
     #exclude: [ string ] # which branches to exclude from the schedule
   always: false # whether to always run the pipeline or only if there have been source code changes since the last successful scheduled run. The default is false.schedules:
-  
+
 resources:
   repositories:
   - repository: devops-scripts
     type: github
     name: dmedeiros-veracode/devops-scripts-azure-devops
     endpoint: dmedeiros-veracode #Connection name of GitHub App. Can be name of a Service Connection to GitHub as well.
-  
+
+pool:
+  vmImage: 'windows-latest'
+
 variables:
-- group: 'SCA Agent Configuration' # Reference the library containing 
-- name: solution
-  value:  '**/*.sln'
-- name: buildPlatform
-  value: 'Any CPU'
-- name: buildConfiguration
-  value: 'Release'
-  
+- group: 'SCA Agent Configuration' # Reference the library containing  
   #solution: '**/*.sln'
   #buildPlatform: 'Any CPU'
   #buildConfiguration: 'Release'
@@ -45,26 +38,32 @@ stages:
   jobs:
   - job: Build_Release
     displayName: Release Build
-
+    
     steps:
     - script: echo '$(Build.BuildNumber)'
-    - task: NuGetToolInstaller@1
+    - template: steps/abstract-build-steps.yml@devops-scripts
+      parameters:
+        buildConfiguration: 'Release'
+ 
+    #steps:
+    #- script: echo '$(Build.BuildNumber)'
+    #- task: NuGetToolInstaller@1
 
-    - task: NuGetCommand@2
-      inputs:
-        restoreSolution: '$(solution)'
+    #- task: NuGetCommand@2
+    #  inputs:
+    #    restoreSolution: '$(solution)'
 
-    - task: VSBuild@1
-      inputs:
-        solution: '$(solution)'
-        msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:PackageLocation="$(build.artifactStagingDirectory)"'
-        platform: '$(buildPlatform)'
-        configuration: '$(buildConfiguration)'
+    #- task: VSBuild@1
+   #   inputs:
+   #     solution: '$(solution)'
+   #     msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:PackageLocation="$(build.artifactStagingDirectory)"'
+    #    platform: '$(buildPlatform)'
+    #    configuration: '$(buildConfiguration)'
 
-    - task: VSTest@2
-      inputs:
-        platform: '$(buildPlatform)'
-        configuration: '$(buildConfiguration)'
+    #- task: VSTest@2
+    #  inputs:
+    #    platform: '$(buildPlatform)'
+    #    configuration: '$(buildConfiguration)'
 
     #steps:
     #- template: steps/abstract-build-steps.yml@devops-scripts
