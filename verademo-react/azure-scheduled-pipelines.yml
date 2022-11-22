@@ -31,6 +31,7 @@ variables:
   solution: '**/*.sln'
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
+- group: 'SCA Agent Configuration' # Reference the library containing 
 
 stages: 
 - stage: Build
@@ -108,13 +109,8 @@ stages:
   - template: jobs/veracode-sast-platform-release-candidate-job.yml@devops-scripts
     parameters: 
       downloadArtifact: "WebApp_Debug"
-      
-  - job: SCA_Security_Testing
-    displayName: Software Componsition Analysis Testing
-    
-    steps:
-    - bash: echo 'SCA Testing'
-    - bash: echo 'Downloading Project'
+
+  - template: jobs/veracode-sca-agent-job.yml@devops-scripts'
       
 # Deployment Stage of CI/CD Pipeline
 # - stage: Deployment
