@@ -18,8 +18,8 @@ The examples for each of the pipelines within the main line branch are only a de
 #### Azure Pipeline Activity
 Pipeline | Script | Status
 ------ | ------   |----
-Scheduled Daily Release Candidate Build from Main branch| azure-scheduled-pipelines.yml | [![Build Status](https://dev.azure.com/veracode-demonstration/verademo-react/_apis/build/status/Scheduled%20Build%20and%20Analysis%20for%20Verademo%20React?repoName=dmedeiros-veracode%2Fverademo-react&branchName=main)](https://dev.azure.com/veracode-demonstration/verademo-react/_build/latest?definitionId=22&repoName=dmedeiros-veracode%2Fverademo-react&branchName=main)
-Pull Requests Analyses |asure-pull-request-pipelines.yml|[![Build Status](https://dev.azure.com/veracode-demonstration/verademo-react/_apis/build/status/Pull%20Request%20Build%20and%20Analysis%20for%20Verademo-React?repoName=dmedeiros-veracode%2Fverademo-react&branchName=main)](https://dev.azure.com/veracode-demonstration/verademo-react/_build/latest?definitionId=23&repoName=dmedeiros-veracode%2Fverademo-react&branchName=main)
+Scheduled Daily Release Candidate Build from Main branch| azure-scheduled-pipelines.yml | [![Build Status](https://dev.azure.com/veracode-demonstration/verademo-react/_apis/build/status/Scheduled%20Daily%20Release%20Candidate%20Build%20from%20Main%20branch?repoName=dmedeiros-veracode%2Fverademo-react&branchName=main)](https://dev.azure.com/veracode-demonstration/verademo-react/_build/latest?definitionId=30&repoName=dmedeiros-veracode%2Fverademo-react&branchName=main)
+Pull Requests Analyses |asure-pull-request-pipelines.yml|[![Build Status](https://dev.azure.com/veracode-demonstration/verademo-react/_apis/build/status/Pull-Request%20for%20Verademo-React?repoName=dmedeiros-veracode%2Fverademo-react&branchName=main)](https://dev.azure.com/veracode-demonstration/verademo-react/_build/latest?definitionId=29&repoName=dmedeiros-veracode%2Fverademo-react&branchName=main)
 # Pipeline Examples
 
 ### SAST Plarform/Sandbox Analysis
