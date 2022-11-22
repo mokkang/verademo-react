@@ -9,7 +9,7 @@ resources:
     - repository: devops-scripts # Name given to reference this repository link
       type: github # Type of Repository
       name: dmedeiros-veracode/devops-scripts-azure-devops # Repository Reference
-      ref: $(Build.SourceBranchName) # Repository Branch to Reference
+      #ref: $(Build.SourceBranchName) # Repository Branch to Reference
       endpoint: dmedeiros-veracode # Connection name of GitHub App. Can be name of a Service Connection to GitHub as well.
 
 pool:
