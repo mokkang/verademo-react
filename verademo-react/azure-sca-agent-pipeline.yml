@@ -15,30 +15,8 @@ resources:
 pool:
   vmImage: 'ubuntu-latest'
   
-parameters:
-  - name: quickScan
-    displayName: Quick Scan
-    type: boolean
-    default: false
-    values:
-      - true
-      - false
-
 variables:
 - group: 'SCA Agent Configuration' # Reference the library containing 
 
-#jobs:
-# - template: jobs/veracode-sca-agent-job.yml@devops-scripts
-
 jobs:
-  - job: SCA_Agent_Security_Testing
-    displayName: Software Composition Analysis Testing
-
-    steps:
-    - script: ls -la $(Build.SourcesDirectory)
-    - ${{ if eq(parameters.quickScan, true) }}:
-      - script: curl -sSL  https://download.sourceclear.com/ci.sh | sh -s -- scan $(Build.SourcesDirectory) --quick --ws $(WORKSPACE_SLUG)
-        displayName: Performing SCA Analysis
-    - ${{ if eq(parameters.quickScan, false) }}:
-      - script: curl -sSL  https://download.sourceclear.com/ci.sh | sh -s -- scan $(Build.SourcesDirectory) --ws $(WORKSPACE_SLUG)
-        displayName: Performing SCA Analysis
+- template: jobs/veracode-sca-agent-job.yml@devops-scripts
