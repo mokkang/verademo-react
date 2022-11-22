@@ -42,6 +42,9 @@ stages:
 
 - stage: Security_Testing
   jobs:       
+    
+  - template: jobs/veracode-sca-agent-job.yml@devops-scripts
+  
   - job: SAST_Security_Testing
     displayName: Static Analysis Security Testing
 
@@ -79,5 +82,4 @@ stages:
         echo See https://aka.ms/yaml   
       displayName: 'Run a multi-line script'
       
-  - job:
-    - template: jobs/veracode-sca-agent-job.yml@devops-scripts
+
