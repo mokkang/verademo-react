@@ -45,6 +45,7 @@ stages:
   - job: SAST_Security_Testing
     displayName: Static Analysis Security Testing
 
+    
     steps:
     - checkout: none
     - task: DownloadPipelineArtifact@2
@@ -78,6 +79,4 @@ stages:
         echo See https://aka.ms/yaml   
       displayName: 'Run a multi-line script'
 
-- stage: Test
-  jobs:
     - template: jobs/veracode-sca-agent-job.yml@devops-scripts
