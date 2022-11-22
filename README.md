@@ -9,28 +9,47 @@ The Verademo application example is a simple .NET Core web application with a An
 >[!NOTE]
 >The demo application does not have any major weaknesses or vulnerabilities reported within the main branch. As the purpose of this project is to illustrate integration of the Veracode Tools.
 
-## Azure Pipeline Activity
+## Azure DevOps Project
+The azure devops project and pipelines used to build and analyze this demonstration application is located within this project on Azure DevOps: [Veracodemo-React](https://dev.azure.com/veracode-demonstration/verademo-react)
 
+### Pipeline Examples
+The examples for each of the pipelines within the main line branch are only a demonstration of a successful path through the SDLC for each case. The Verademo application within the main branch does not container any weaknesses or vulnerabilities to demonstrate any strategy or flow to addressing weaknesses.
+
+#### Azure Pipeline Activity
 Pipeline | Script | Status
 ------ | ------   |----
-Scheduled Daily Release Candidate Build from Main branch| azure-scheduled-pipelines.yml | [![Build Status](https://dev.azure.com/veracode-demonstration/verademo-react/_apis/build/status/Scheduled%20Daily%20Release%20Candidate%20Build%20from%20Main%20branch?repoName=dmedeiros-veracode%2Fverademo-react&branchName=main)](https://dev.azure.com/veracode-demonstration/verademo-react/_build/latest?definitionId=30&repoName=dmedeiros-veracode%2Fverademo-react&branchName=main)
-Pull Requests |asure-pull-request-pipelines.yml|[![Build Status](https://dev.azure.com/veracode-demonstration/verademo-react/_apis/build/status/Pull-Request%20for%20Verademo-React?repoName=dmedeiros-veracode%2Fverademo-react&branchName=main)](https://dev.azure.com/veracode-demonstration/verademo-react/_build/latest?definitionId=29&repoName=dmedeiros-veracode%2Fverademo-react&branchName=main)
+Scheduled Daily Release Candidate Build from Main branch| azure-scheduled-pipelines.yml | [![Build Status](https://dev.azure.com/veracode-demonstration/verademo-react/_apis/build/status/Scheduled%20Build%20and%20Analysis%20for%20Verademo%20React?repoName=dmedeiros-veracode%2Fverademo-react&branchName=main)](https://dev.azure.com/veracode-demonstration/verademo-react/_build/latest?definitionId=22&repoName=dmedeiros-veracode%2Fverademo-react&branchName=main)
+Pull Requests Analyses |asure-pull-request-pipelines.yml|[![Build Status](https://dev.azure.com/veracode-demonstration/verademo-react/_apis/build/status/Pull%20Request%20Build%20and%20Analysis%20for%20Verademo-React?repoName=dmedeiros-veracode%2Fverademo-react&branchName=main)](https://dev.azure.com/veracode-demonstration/verademo-react/_build/latest?definitionId=23&repoName=dmedeiros-veracode%2Fverademo-react&branchName=main)
 # Pipeline Examples
 
-The examples for the pipelines within the main line branch are only a demonstration of a successful path through the SDLC in each case. The Verademo application within this branch does not container any weaknesses or vulnerabilities to demonstrate any strategy.
+### SAST Plarform/Sandbox Analysis
+To use the template for running Veracode Platform SAST analysis within Azure DevOps. The following information must be provided to the template during execution.
+ - Artifact
+ - Service Connection
 
-# Setup and Usage
 
-#### SAST Plarform/Sandbox Analysis
 In the Azure Domain Settings under Service Connection create a Veracode Analysis Center Service Connection. Configure with appropriate Veracode API ID and Veracode API Key.
 
-#### SAST Pipeline Analysis
-Create in the Azure Project Library a library group that is called "Veracode Credentials". Configure the variable group to contain two secret variables:
-- VERACODE_API_ID
-- VERACODE_API_KEY
+[Service Connection](https://docs.veracode.com/r/Create_a_Service_Connection_in_Azure_DevOps)
 
-#### SCA Agent
+
+
+
+### SAST Pipeline Analysis
+To use the template for running Veracode Pipeline SAST analysis within Azure DevOps. The following information must be provided to the template during execution.
+ - Artifact
+ - VERACODE_API_ID
+ - VERACODE_API_KEY
+ - Policy
+ - Baseline File
+
+
+### SCA Agent
 SRCCLR_API_TOKEN Set to the token value
+
+ - Repo Url or Content
+ - SRCCLR_API_TOKEN
+  
 
 The sample application
 
@@ -42,7 +61,7 @@ dmedeiros-veracode
 azure-scheduled-pipeline.yml
 azure-pull-request.pipelines.yml
 
-# Azure DevOps Pipeline as Code
+#### Azure DevOps Pipeline as Code
 
 The sample scripts ei
 
@@ -50,3 +69,13 @@ The sample scripts ei
 
 
 https://dev.azure.com/veracode-demonstration/verademo-azure
+
+
+Create in the Azure Project Library a library group that is called "Veracode Credentials". Configure the variable group to contain two secret variables:
+- VERACODE_API_ID
+- VERACODE_API_KEY
+
+Enter in the values for each and select that the information is secret by clicking on the lock when done entering.
+
+>[!NOTE] 
+>More information about [Azure Library Groups](https://learn.microsoft.com/en-us/azure/devops/pipelines/library/?view=azure-devops)
