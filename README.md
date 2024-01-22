@@ -15,7 +15,7 @@ The azure devops project and pipelines used to build and analyze this demonstrat
 ### Pipeline Examples
 The examples for each of the pipelines within the main line branch are only a demonstration of a successful path through the SDLC for each case. The Verademo application within the main branch does not container any weaknesses or vulnerabilities to demonstrate any strategy or flow to addressing weaknesses.
 
-#### Azure Pipeline Activity
+#### Azure Pipeline Activity 
 Pipeline | Script | Status
 ------ | ------   |----
 Scheduled Daily Release Candidate Build from Main branch| azure-scheduled-pipelines.yml | [![Build Status](https://dev.azure.com/veracode-demonstration/verademo-react/_apis/build/status/Scheduled%20Daily%20Release%20Candidate%20Build%20from%20Main%20branch?repoName=dmedeiros-veracode%2Fverademo-react&branchName=main)](https://dev.azure.com/veracode-demonstration/verademo-react/_build/latest?definitionId=30&repoName=dmedeiros-veracode%2Fverademo-react&branchName=main)
